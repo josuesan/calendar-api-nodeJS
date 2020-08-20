@@ -15,6 +15,12 @@ const jwtValidator = (req = request, res = response, next) => {
       token,
       process.env.SECRET_JWT_SIGN
     );
+    if (!uid && !name) {
+      return res.status(401).json({
+        ok: false,
+        msg: 'Token invalid'
+      });
+    }
     req.uid = uid;
     req.name = name;
     next();
