@@ -80,12 +80,14 @@ const loginUser = async (req = request, res = response) => {
 }
 
 const refreshToken = async (req = request, res = response) => {
-  const { uid, name } = req.uid;
+  const { uid, name } = req;
   try {
     const token = await generateJwt(uid, name)
     return res.status(200).json({
       ok: true,
-      token
+      token,
+      uid,
+      name
     });
   } catch (error) {
     console.log(error);
