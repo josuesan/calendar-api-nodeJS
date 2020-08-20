@@ -1,2 +1,0 @@
-dbUser: admin_calendar_app
-pass: SB8vY2HPZ6msDr4y
